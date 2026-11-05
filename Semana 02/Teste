@@ -1,0 +1,33 @@
+# Casos de Teste - Estação de Monitorização
+
+## 1. Testes Integrados Básicos
+| Caso | Pot. | Temp. | Botão | Resposta Esperada | Justificativa |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **T1** | 200 | 25 ºC | Livre | NORMAL; LED off | Entradas em faixa normal. |
+| **T2** | 500 | 25 ºC | Livre | ATENÇÃO; LED off | Pot. entre 400 e 749. |
+| **T3** | 800 | 25 ºC | Livre | ALARME; LED off | Pot. >= 750. |
+| **T4** | 200 | 35 ºC | Livre | ATENÇÃO; LED off | Temp. entre 30 e 39.9 ºC. |
+| **T5** | 200 | 45 ºC | Livre | ALARME; LED off | Temp. >= 40 ºC. |
+| **T6** | 200 | 25 ºC | Pressionado | NORMAL; LED on | Botão atua no LED sem alterar estado do processo. |
+| **T7** | 200 | Inválida | Livre | FALHA DE SENSOR | Diagnóstico tem a maior prioridade. |
+
+## 2. Testes de Prioridade Adicional
+| Caso | Pot. | Temp. | Resultado | Justificativa |
+| :--- | :--- | :--- | :--- | :--- |
+| **P1** | 900 | 45 ºC | ALARME | Duas condições de alarme ativas. |
+| **P2** | 500 | 45 ºC | ALARME | Alarme de temperatura supera atenção do pot. |
+| **P3** | 900 | 35 ºC | ALARME | Alarme do pot. supera atenção térmica. |
+| **P4** | 500 | 35 ºC | ATENÇÃO | Duas condições de atenção. |
+| **P5** | 900 | Inválida| FALHA DE SENSOR | Falha de instrumento supera o alarme do potenciómetro. |
+
+## 3. Teste de Histerese de Temperatura (Potenciómetro = 200)
+| Amostra | Temp. | Estado Anterior | Ação | Saída |
+| :--- | :--- | :--- | :--- | :--- |
+| **H1** | 36 ºC | Desligado | Não atinge 40 | ATENÇÃO |
+| **H2** | 39 ºC | Desligado | Ainda não atinge 40 | ATENÇÃO |
+| **H3** | 40 ºC | Desligado | Liga o alarme | ALARME |
+| **H4** | 39 ºC | Ligado | Mantém: ainda > 37 | ALARME |
+| **H5** | 38 ºC | Ligado | Mantém: ainda > 37 | ALARME |
+| **H6** | 37 ºC | Ligado | Desliga o alarme | ATENÇÃO |
+| **H7** | 36 ºC | Desligado | Permanece desligado | ATENÇÃO |
+| **H8** | 29 ºC | Desligado | Abaixo do limite de atenção | NORMAL |
