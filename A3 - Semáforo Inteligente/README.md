@@ -25,5 +25,5 @@ O sistema funcionará através de um Controlador Lógico Programável (CLP), com
 * Carol Ornelas de Almeida - 823115679
 * Jessica Thais Quenallata Cuela - 82423659
 * Mayara Borges de Carvalho - 823113068
-* Felipe Menegazzi Garofalo - 
+* Felipe Menegazzi Garofalo- 824152542
 * Támer Issa Ubaid - 823119535
