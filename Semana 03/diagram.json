@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "author": "Alissa Novais",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": -37.8, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-dht22", "id": "dht1", "top": -66.9, "left": 378.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -20.5, "left": -105.8, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 15.8,
+      "left": 288,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -147.6,
+      "left": 176.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -92.05,
+      "left": 96,
+      "attrs": { "value": "220" }
+    }
+  ],
+  "connections": [
+    [ "dht1:VCC", "uno:5V", "red", [ "v124.8", "h-147.8" ] ],
+    [ "dht1:GND", "uno:GND.2", "black", [ "v134.4", "h-167.1" ] ],
+    [ "dht1:SDA", "uno:4", "green", [ "v144", "h67.3", "v-268.8", "h-253.5" ] ],
+    [ "pot1:VCC", "uno:5V", "red", [ "v124.8", "h216.2" ] ],
+    [ "pot1:GND", "uno:GND.3", "black", [ "v134.4", "h255.2" ] ],
+    [ "pot1:SIG", "uno:A0", "green", [ "v144", "h274.2" ] ],
+    [ "btn1:1.l", "uno:2", "green", [ "v-86.4", "h-52.1" ] ],
+    [ "btn1:1.r", "uno:GND.3", "green", [ "v134.4", "h-176.6" ] ],
+    [ "uno:8", "r1:1", "green", [ "v-28.8", "h-76.4" ] ],
+    [ "r1:2", "led1:A", "green", [ "v-57.6", "h75.6", "v38.4" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "h-28.4", "v57.6", "h-48.3" ] ]
+  ],
+  "dependencies": {}
+}
